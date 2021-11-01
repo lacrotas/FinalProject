@@ -105,16 +105,22 @@ main{
     background-size: 100% 100%;
 }
 .maingrid-minmaxRating, .maingrid-playernumMap, .maingrid-dataAge{
-    padding-top: 15%; 
     width: 20%;
     background-color: cadetblue;
     display: inline-block;
 }
-.maingrid-minmaxRating input{
+form{
+    overflow: hidden;
+}
+
+.maingrid-minmaxRating input, .maingrid-playernumMap input, .maingrid-dataAge input{
     position: relative;
+    z-index: 2;
+    font-size: 2em;
+    overflow: hidden;
     width: 100%;
-    height: 50%;
-    
+    padding-top: 20%; 
+    box-sizing: border-box;
 }
 /*position of stick between blocks*/
 .maingrid-gameico-stick, .maingrid-minmaxRating-stick ,.maingrid-playernumMap-stick{
@@ -124,12 +130,6 @@ main{
     display: inline-block;
     position: relative;
     top:-10%;
-}
-.maingrid-comments{
-    width: 100%;
-    height: 40%;
-    background-color: cadetblue;
-    margin-top: -.36em;
 }
 .maingrid-gameico-sticktocoments, .maingrid-minmaxRating-sticktocoments, .maingrid-playernumMap-sticktocoments, .maingrid-dataAge-sticktocoments{
     height: 15%;
@@ -142,7 +142,14 @@ main{
 .maingrid-gameico-sticktocoments{
     margin-left: 5%;
 }
-
+/*comment window*/
+.maingrid-comments{
+    width: 100%;
+    height: 40%;
+    background-color: cadetblue;
+    margin-top: -.36em;
+}
+/*button*/
 .maingrid a{    
     position: relative;
     left: 40%;
