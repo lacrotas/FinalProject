@@ -8,11 +8,11 @@
 </head>
 
 <body>
-<script src="/scripts/script.js"></script>
+
 <header>
 <div class="header-logo">
     <img src="../Img/Logo2.png" width="100px" height="100px">
-    <h2>TeamSet</h2>
+    <a href="/index.html">TeamSet</a>
 </div>
 <div class="header-navbar">
     <a  href="">Вход</a>
@@ -22,46 +22,48 @@
 
 <main>
    <div class="maingrid">
+    
        <form>
-       <div class="maingrid-gameicoAccordion">
-        <img src="/Img/dota2.jpg"></img>
-      <!-- <div class="accordion-item-show">
-            <img src="/Img/dota2.jpg"></img>
-        </div>--> 
-        <div class="accordion-item">
-            <img src="/Img/cs.png"></img>
-        </div>
-        <div class="accordion-item">
-        <img src="/Img/dota2.jpg"></img>
-        </div>
-        <div class="accordion-item">
-            <img src="/Img/lol.png"></img>
-        </div>
-        <div class="accordion-item">
-            <img src="/Img/teamfortress2.jpg"></img>
-        </div>
-       </div>
 
+        <div onclick="UseAccordion()" class="accordion-item-show" id="id1">
+        </div>
+ 
        <div class="maingrid-gameico-stick"></div>
 
        <div class="maingrid-minmaxRating">
-        <input type="text" name="min-raiting" placeholder="Мин рейтинг">
-        <input type="text" name="max-raiting" placeholder="Макс рейтинг">
+        <input type="text" name="createform" placeholder="Мин рейтинг">
+        <input type="text" name="createform" placeholder="Макс рейтинг">
        </div>    
        <div class="maingrid-minmaxRating-stick"></div>
 
        <div class="maingrid-playernumMap">
-        <input type="text" name="playernumber" placeholder="Кол-во игроков">
-        <input type="text" name="map" placeholder="Карта">
+        <input type="text" name="createform" placeholder="Кол-во игроков">
+        <input type="text" name="createform" placeholder="Карта">
        </div>
        <div class="maingrid-playernumMap-stick"></div>
 
        <div class="maingrid-dataAge">
-        <input type="text" name="dataTime" placeholder="Дата,время">
-        <input type="text" name="age" placeholder="Возраст">
+        <input type="text" name="createform" placeholder="Дата,время">
+        <input type="text" name="createform" placeholder="Возраст">
        </div>
        </form>
        
+       <div class="accord-items">
+        <div onclick="ChangeGame('cs')" class="accordion-item">
+            <img src="/Img/cs.png">
+        </div>
+        <div onclick="ChangeGame('dota')" class="accordion-item">
+        <img src="/Img/dota2.jpg">
+        </div>
+        <div onclick="ChangeGame('lol')" class="accordion-item">
+            <img src="/Img/lol.png">
+        </div>
+        <div onclick="ChangeGame('tf')" class="accordion-item">
+            <img src="/Img/teamfortress2.jpg">
+        </div>
+        </div>
+
+
        <div class="maingrid-gameico-sticktocoments"></div>
        <div class="maingrid-minmaxRating-sticktocoments"></div>
        <div class="maingrid-playernumMap-sticktocoments"></div>
@@ -70,13 +72,16 @@
        <div class="maingrid-comments">
         <textarea name="Text1" cols="40" rows="5" placeholder="Ваш комментарий"></textarea>
        </div>
-       <a>Создать лобби</a>
+        <a onclick="Check()">Создать лобби</a> 
     </div>
    
 </main>
+
 <footer>
     <p>Copyright @TeamSet 2021</p>
 </footer>
+
+<script src="/scripts/script.js"></script>
 </body>
 
 </html>
