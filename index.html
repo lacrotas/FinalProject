@@ -5,6 +5,14 @@
 <meta charset="utf-8" />
 <title>ItWillExistSoon</title>
 <link rel="stylesheet" href="styles/style.css">
+<!-- fonts for h2 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- fonts for other info -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -12,7 +20,7 @@
 <header>
 <div class="header-logo">
     <img src="./Img/Logo2.png" width="100px" height="100px">
-    <a href="/index.html">TeamSet</a>
+    <h2 onclick="GotoPage('/index.html')">TeamSet</h2>
 </div>
 <div class="header-navbar">
     <a  href="">Вход</a>
@@ -38,18 +46,34 @@
             <h2>Создание лобби</h2>
             <p>Выбирите игру и вы сможите создать лобби</p>
             <div class="lobbiSearch-window-gamelist">
-                <a href="./pages/create.html"><img src="./Img/cs.png" alt=""></a>
-                <a href="./pages/create.html"><img src="./Img/dota2.jpg" alt=""></a>
-                <a href="./pages/create.html"><img src="./Img/lol.png" alt=""></a>
-                <a href="./pages/create.html"><img src="./Img/teamfortress2.jpg" alt=""></a>
+                <a href="./pages/create.html" onclick="ChangeGame('cs')"><img src="./Img/cs.png" alt=""></a>
+                <a href="./pages/create.html" onclick="ChangeGame('dota')"><img src="./Img/dota2.jpg" alt=""></a>
+                <a href="./pages/create.html" onclick="ChangeGame('lol')"><img src="./Img/lol.png" alt=""></a>
+                <a href="./pages/create.html" onclick="ChangeGame('tf')"><img src="./Img/teamfortress2.jpg" alt=""></a>
             </div>
         </div>
     </div>
 </main>
 
 <footer>
+    <div class="footer-left">
+        <h3>Есть идеи по сайту? Пиши сюда</h3>
+        <img src="./Img/social/vkBlack.png" width="50px" height="50px">
+        <img src="./Img/social/twiterBlack.png" width="50px" height="50px">
+        <img src="./Img/social/youtubeBlack.png" width="50px" height="50px">
+        <img src="./Img/social/instaBlack.png" width="50px" height="50px">
+    </div>
+    <div class="footer-center">
+    <img src="./Img/Logo.png" width="150px" height="150px">
     <p>Copyright @TeamSet 2021</p>
+    </div>
+    <div class="footer-rigth">
+        <h3>Контакты</h3>
+        <p>Телефон: +375(33)637-43-27</p>
+        <p>Почта: 123123maks1@mail.ru</p>
+    </div>
 </footer>
+<script src="/scripts/script.js"></script>
 </body>
 
 </html>
