@@ -20,7 +20,7 @@
 <header>
 <div class="header-logo">
     <img src="../Img/Logo2.png" width="100px" height="100px">
-    <h2 onclick="GotoPage('/index.html')">TeamSet</h2>
+    <h2 onclick="GotoPage('../index.html')">TeamSet</h2>
 </div>
 <div class="header-navbar">
     <a  href="">Вход</a>
@@ -39,8 +39,19 @@
        <div class="maingrid-gameico-stick"></div>
 
        <div class="maingrid-minmaxRating">
-        <input type="text" name="createform" placeholder="Мин рейтинг">
-        <input type="text" name="createform" placeholder="Макс рейтинг">
+        <select name="createform">
+            <option>Мин ранг</option>
+            <option value="Novice">Novice</option>
+            <option value="Amateur">Amateur</option>
+            <option value="Expert">Expert</option>
+        </select>
+        <select name="createform">
+            <option>Макс ранг</option>
+            <option value="Novice">Novice</option>
+            <option value="Amateur">Amateur</option>
+            <option value="Expert">Expert</option>
+        </select>
+
        </div>    
        <div class="maingrid-minmaxRating-stick"></div>
 
@@ -58,16 +69,16 @@
        
        <div class="accord-items">
         <div onclick="ChangeGame('cs')" class="accordion-item">
-            <img src="/Img/cs.png">
+            <img src="../Img/cs.png">
         </div>
         <div onclick="ChangeGame('dota')" class="accordion-item">
-        <img src="/Img/dota2.jpg">
+        <img src="../Img/dota2.jpg">
         </div>
         <div onclick="ChangeGame('lol')" class="accordion-item">
-            <img src="/Img/lol.png">
+            <img src="../Img/lol.png">
         </div>
         <div onclick="ChangeGame('tf')" class="accordion-item">
-            <img src="/Img/teamfortress2.jpg">
+            <img src="../Img/teamfortress2.jpg">
         </div>
         </div>
 
@@ -88,13 +99,13 @@
 <footer>
     <div class="footer-left">
         <h3>Есть идеи по сайту? Пиши сюда</h3>
-        <img src="/Img/social/vkBlack.png" width="50px" height="50px">
-        <img src="/Img/social/twiterBlack.png" width="50px" height="50px">
-        <img src="/Img/social/youtubeBlack.png" width="50px" height="50px">
-        <img src="/Img/social/instaBlack.png" width="50px" height="50px">
+        <img src="../Img/social/vkBlack.png" width="50px" height="50px">
+        <img src="../Img/social/twiterBlack.png" width="50px" height="50px">
+        <img src="../Img/social/youtubeBlack.png" width="50px" height="50px">
+        <img src="../Img/social/instaBlack.png" width="50px" height="50px">
     </div>
     <div class="footer-center">
-    <img src="/Img/Logo.png" width="150px" height="150px">
+    <img src="../Img/Logo.png" width="150px" height="150px">
     <p>Copyright @TeamSet 2021</p>
     </div>
     <div class="footer-rigth">
@@ -104,8 +115,8 @@
     </div>
 </footer>
 
-<script src="/scripts/script.js"></script>
-<script src="/scripts/accordion.js"></script>
+<script  type="text/javascript"  src="../scripts/script.js"></script>
+<script  type="text/javascript"  src="../scripts/accordion.js"></script>
 </body>
 
 </html>

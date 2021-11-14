@@ -22,19 +22,19 @@ function ChangeGame(name){
   }else{
   if(name=="cs"){
     choosenGame=1;
-    document.getElementById('id1').style.backgroundImage = 'url(/Img/cs.png)'
+    document.getElementById('id1').style.backgroundImage = 'url(../Img/cs.png)'
   }else
   if(name=="dota"){
     choosenGame=2;
-    document.getElementById('id1').style.backgroundImage = 'url(/Img/dota2.jpg)'
+    document.getElementById('id1').style.backgroundImage = 'url(../Img/dota2.jpg)'
   }else
   if(name=="lol"){
     choosenGame=3;
-    document.getElementById('id1').style.backgroundImage = 'url(/Img/lol.png)';
+    document.getElementById('id1').style.backgroundImage = 'url(../Img/lol.png)';
   }else
   if(name=="tf"){
     choosenGame=4;
-    document.getElementById('id1').style.backgroundImage = 'url(/Img/teamfortress2.jpg)'
+    document.getElementById('id1').style.backgroundImage = 'url(../Img/teamfortress2.jpg)'
   }
   }
   localStorage.setItem('Gamekey',choosenGame);
@@ -62,7 +62,7 @@ function SaveInfo(){
     localStorage.setItem('lobbiArray',(lobbiArray));
     localStorage.setItem('lobbiData', lobbiData);
   
-    document.location.href = "/pages/creatorwindow.html";
+    document.location.href = "../pages/creatorwindow.html";
 }
 //check fill of each input and right time
 function Check()
@@ -198,16 +198,16 @@ window.onload = function() {
     }else if(r=="create.html"){//start icon on create.html
       choosenGame=localStorage.getItem('Gamekey');
       if(choosenGame=="1"){
-        document.getElementById('id1').style.backgroundImage = 'url(/Img/cs.png)'
+        document.getElementById('id1').style.backgroundImage = 'url(../Img/cs.png)'
       }else
       if(choosenGame=="2"){
-        document.getElementById('id1').style.backgroundImage = 'url(/Img/dota2.jpg)'
+        document.getElementById('id1').style.backgroundImage = 'url(../Img/dota2.jpg)'
       }else
       if(choosenGame=="3"){
-        document.getElementById('id1').style.backgroundImage = 'url(/Img/lol.png)';
+        document.getElementById('id1').style.backgroundImage = 'url(../Img/lol.png)';
       }else
       if(choosenGame=="4"){
-        document.getElementById('id1').style.backgroundImage = 'url(/Img/teamfortress2.jpg)'
+        document.getElementById('id1').style.backgroundImage = 'url(../Img/teamfortress2.jpg)'
       }
     }
   };

@@ -76,7 +76,11 @@ function CheckLobbi(i){
         lobbiArray[j]=lobbiData[(i*8)+j];
     }
     localStorage.setItem('lobbiArray',lobbiArray);
-    document.location.href = "/pages/creatorwindow.html";
+    document.location.href = "../pages/creatorwindow.html";
+}
+
+function GotoPage(hrefHtml){
+  document.location.href = hrefHtml;
 }
 window.onload = function() {
     CreateList();

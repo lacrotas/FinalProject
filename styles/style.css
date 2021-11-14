@@ -4,7 +4,7 @@ html,body{
 }
 body{
     position: relative;
-    background-image: url(/Img/mainfon.jpg);
+    background-image: url(../Img/mainfon.jpg);
     background-repeat:no-repeat;
     background-size: 100% 100vh;
     background-attachment:fixed;
@@ -120,7 +120,7 @@ form{
     z-index: 2;     
     background-repeat:no-repeat;
     background-size: 100% 100%;
-    background-image: url(/Img/lol.png);
+    background-image: url(../Img/lol.png);
     cursor: pointer;
 }
 /*open accordion position*/
@@ -144,7 +144,7 @@ form{
     width: 20%;
     background-color: cadetblue;
 }
-.maingrid-minmaxRating input, .maingrid-playernumMap input, .maingrid-dataTime input{
+.maingrid-minmaxRating select, .maingrid-playernumMap input, .maingrid-dataTime input{
     position: relative;
     z-index: 2;
     font-size: 100%;
@@ -250,7 +250,7 @@ form{
     flex-basis: 33.33%;
     height: 100%;
 }
-.redaction-flexbox div input{
+.redaction-flexbox div input, .redaction-flexbox div select{
     font-size: 100%;
     width: 100%;
     height: 35%;
@@ -339,7 +339,7 @@ form{
     flex-basis: 33.33%;
     height: 70%;
 }
-.findfilter-flex div input{
+.findfilter-flex div input,select{
     font-size: 100%;
     width: 100%;
     height: 50%;
