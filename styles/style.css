@@ -40,17 +40,34 @@ header{
 
 }
 .header-navbar{
+    max-width: 81%;
     float: right;
     font-size: 1.5em;
     text-decoration: none;
     margin-top: 49px;
 }
 .header-navbar a{
+    
     width: 100px;
     margin: 20px;
     padding: 20px 40px 20px 40px;
     background-color: #FECC50;
     text-decoration: none; 
+}
+.header-navbar div{
+    position: absolute;
+    right: 50%;
+    margin-right: -180px;
+    top: 30px;
+}
+.header-navbar div h3{
+    display: inline-block;
+    margin-left: 30px;
+    position: relative;
+    top:-13px;
+}
+.header-navbar div img{
+    border-radius: 20px;
 }
 
 /*main page*/
@@ -379,6 +396,66 @@ form{
     margin: 0 20px 0 20px;
     border-top:2px solid black ;
 }
+/*modal window*/
+
+.modalwindow{
+    display: none;
+    z-index: 9;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.registration-modalwindow,.autorithation-modalwindow{
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    margin-left: -18%;
+    width: 36%;
+    margin-top: 10vh;
+    height: 80vh;
+    background-color: #FCF5E4;
+}
+.registration-modalwindow img, .autorithation-modalwindow img{
+    width: 5%;
+    position: absolute;
+    margin-top: 5px;
+    margin-right: 5px;
+    top: 0;
+    right:0;
+}
+.registration-modalwindow input, .autorithation-modalwindow input{
+    width: 70%;
+    margin-top: 2%;
+    height: 10%;
+    box-sizing: border-box;
+    font-size: 1.3em;
+}
+
+.registration-modalwindo-button h3, .autorithation-modalwindow-button h3{
+    word-wrap: break-word;
+    display: block;
+    width: 30%;
+    margin-left: 33%;
+    margin-top: 3%;
+    padding: 10px;
+    border:1px solid black;
+    font-size: 1em;
+}
+
+/*autorithation window*/
+.autorithation-modalwindow{
+    height: 60vh;
+} 
+
+.autorithation-modalwindow input{
+    height: 20%;
+}
+
 /*footer*/
 
 footer{

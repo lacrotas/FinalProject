@@ -9,16 +9,48 @@
 
 <body>
 
+    <div class="modalwindow">
+        <div class="autorithation-modalwindow">
+            <h2>Авторизация</h2>
+            <img src="../Img/close.png" onclick="CloseModalWindow('registration')">
+            <input type="text" name="autorizationForm" placeholder="Логин">
+            <input type="password" name="autorizationForm" placeholder="Пароль">
+            <div class="autorithation-modalwindow-button">
+            <h3 onclick="Autorization()">Авторизоваться</h3>
+            <a href="">Забыли пароль?</a>
+            <p>Нет учетной записи?</p>
+            <h3 onclick="OpenModalWindow('registration')">Зарегистрироватся</h3>
+            </div>  
+        </div>
+    
+        <div class="registration-modalwindow">
+        <h2>Регистрация</h2>
+        <img src="../Img/close.png" onclick="CloseModalWindow('registration')">
+        <input type="text" name="registrationForm" placeholder="Имя">
+        <input type="email" name="registrationForm" placeholder="Почта">
+        <input type="password" name="registrationForm" placeholder="Пароль">
+        <input type="password" name="registrationForm" placeholder="Повторите пароль">
+          <div class="registration-modalwindo-button">
+           <h3 onclick="Registrate()">Зарегистрироватся</h3>
+           <p>Уже есть учётная запись?</p>
+           <h3 onclick="OpenModalWindow('login')">Авторизоваться</h3>
+          </div>  
+        </div>
+    
+    </div>
+    
     <header>
-        <div class="header-logo">
-            <img src="../Img/Logo2.png" width="100px" height="100px">
-            <h2 onclick="GotoPage('../index.html')">TeamSet</h2>
-        </div>
-        <div class="header-navbar">
-            <a  href="">Вход</a>
-            <a  href="">Регистрация</a>
-        </div>
-        </header>
+    <div class="header-logo">
+        <img src="../Img/Logo2.png" width="100px" height="100px">
+        <h2 onclick="GotoPage('../index.html')">TeamSet</h2>
+    </div>
+    <div class="header-navbar">
+        <a onclick="OpenModalWindow('login')">Вход</a>
+        <a onclick="OpenModalWindow('registration')">Регистрация</a>
+    </div>
+    </header>
+    
+    
 
 <main>
     <div class="findfilter">
@@ -98,7 +130,8 @@
         <p>Почта: 123123maks1@mail.ru</p>
     </div>
 </footer>
-
+<script  type="text/javascript"  src="../scripts/script.js"></script>
+<script  type="text/javascript"  src="../scripts/registreation.js"></script>
 </body>
 
 </html>

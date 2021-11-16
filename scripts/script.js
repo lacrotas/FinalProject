@@ -181,8 +181,10 @@ function CheckOnRightTime(lobbiIndex){
     }
   }
   for(let i=lobbiIndex+13; i<lobbiData.length; i+=8){
+    if(document.getElementsByName('time')[0].value==lobbiData[i]){
     alert("На заданное время уже существует лобби");
     return false;
+    }
   }
   return true;
 }
@@ -191,8 +193,15 @@ function GotoPage(hrefname){
   document.location.href = hrefname;
 }
 window.onload = function() {
-    var st = unescape(window.location.href );
-    var r = st.substring( st.lastIndexOf('/') + 1, st.length );
+  let st = unescape(window.location.href );
+  let r = st.substring( st.lastIndexOf('/') + 1, st.length );
+  if(r!="creatorwindow.html"){
+  if(localStorage.getItem('userNumber')=="out"||localStorage.getItem('userNumber')==null||localStorage.getItem('userNumber')==NaN){
+    
+  }else{
+    ChangeHeader();
+  }
+}
     if(r=="creatorwindow.html"){
     FillForm();
     }else if(r=="create.html"){//start icon on create.html
