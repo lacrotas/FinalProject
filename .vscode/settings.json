@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+     
+    },
+    "javascript.format.enable": false,
+    "cSpell.words": [
+      "dota",
+      "preconnect",
+      "teamfortress"
+    ],  
+    "cSpell.language":"en,ru"
+}
