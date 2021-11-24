@@ -1,38 +1,231 @@
-.App {
-  text-align: center;
-}
+$divBackgroundColor: #313131;
+$buttonBackgroundColor: #f5f5f5;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+// @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto+Slab&family=Roboto:wght@100&display=swap');
+a {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  background-color: $divBackgroundColor;
+}
+//Header.js component
+header {
+  height: 70px;
+  width: 100%;
+  background-color: #272727;
+  overflow: hidden;
+  .header-logo {
+    float: left;
+    h2 {
+      color: $buttonBackgroundColor;
+      display: inline-block;
+      position: relative;
+      top: -25px;
+      cursor: pointer;
+    }
+    img {
+      margin: 10px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .header-navbar {
+    float: right;
+    button {
+      border: none;
+      background: none;
+      font-size: 19px;
+      color: $buttonBackgroundColor;
+      display: inline-block;
+      padding: 10px 20px 10px 20px;
+      margin: 15px;
+      &:hover {
+        background-color: $buttonBackgroundColor;
+        color: $divBackgroundColor;
+        cursor: pointer;
+      }
+    }
   }
 }
+// SliderInfo.js component
+@keyframes slide {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.captioned-gallery {
+  width: 100%;
+  overflow: hidden;
+  figure {
+    margin: 0;
+    width: 100%;
+    height: 400px;
+  }
+  .slider {
+    position: relative;
+    width: 400%;
+    font-size: 0;
+    animation: 30s slide infinite;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+    figure {
+      width: 25%;
+      height: auto;
+      display: inline-block;
+      position: inherit;
+      div {
+        font-family: 'Roboto';
+        position: absolute;
+        top: 20%;
+        color: #fff;
+        width: 100%;
+        font-size: 2rem;
+        padding: 0.6rem;
+        text-align: center;
+        h2 {
+          font-family: 'Lato', sans-serif;
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}
+//modal window
+.modalWindow {
+  z-index: 9;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($buttonBackgroundColor, 0.6);
+  .buttonClose {
+    margin-left: calc(100% - 60px);
+    margin-top: 10px;
+    width: 50px;
+  }
+  .authorization-modalWindow {
+    border-radius: 10px;
+    position: relative;
+    left: calc(50% - 175px);
+    top: calc(40vh - 200px);
+    background-color: $divBackgroundColor;
+    width: 350px;
+    height: 400px;
+    color: white;
+    text-align: center;
+    input {
+      margin-top: 3%;
+      width: 70%;
+      height: 15%;
+      &:first-child {
+        margin-top: 10%;
+      }
+    }
+    button {
+      text-align: center;
+      width: 40%;
+      height: 10%;
+      margin-left: calc(50% - 20%);
+      margin-top: 3%;
+      display: block;
+    }
+  }
+}
+//CreateLobbyWindow.js & SearchLobbyWindow.js components
+.chooseGame {
+  width: 100%;
+  height: 500px;
+  h2 {
+    text-align: center;
+    padding: 34px;
+    margin: 0px;
+    font-size: 1.9em;
+    color: $buttonBackgroundColor;
+    font-family: 'Lato', sans-serif;
+  }
+  .chooseGame-flexBox {
+    width: 90%;
+    margin-left: 4%;
+    height: 400px;
+    display: flex;
+    div {
+      overflow: hidden;
+      position: relative;
+      width: 25%;
+      height: 100%;
+      margin-left: 2%;
+      h2 {
+        color: $buttonBackgroundColor;
+        text-align: center;
+        position: relative;
+        z-index: 5;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: 1s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+//Footer.js component
+footer {
+  margin-top: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  width: 100%;
+  background-color: #272727;
+  color: $buttonBackgroundColor;
+  .footer-left {
+    flex-basis: 30%;
+    text-align: left;
+    padding-left: 3%;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    img {
+      width: 7%;
+      margin: 2%;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  .footer-center {
+    flex-basis: 33%;
+    text-align: center;
+    img {
+      width: 20%;
+    }
+  }
+  .footer-right {
+    flex-basis: 25%;
+    padding-left: 8%;
+    text-align: left;
   }
 }
