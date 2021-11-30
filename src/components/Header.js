@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import Logo from '../assets/logo2White.png';
 import ModalWindow from './ModalWindow';
 
@@ -19,7 +21,9 @@ class Header extends React.Component {
       <header>
         <div className="header-logo">
           <img src={Logo} alt="" />
-          <h2>TeamSet</h2>
+          <Link to="/">
+            <h2>TeamSet</h2>
+          </Link>
         </div>
         <div className="header-navbar">
           <button type="button" onClick={() => this.isOpen()}>
