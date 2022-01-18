@@ -1,0 +1,69 @@
+// SliderInfo.js component
+@keyframes slide {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.captioned-gallery {
+  width: 100%;
+  overflow: hidden;
+  figure {
+    margin: 0;
+    width: 100%;
+    height: 400px;
+  }
+  .slider {
+    position: relative;
+    width: 400%;
+    font-size: 0;
+    animation: 30s slide infinite;
+
+    figure {
+      width: 25%;
+      height: auto;
+      display: inline-block;
+      position: inherit;
+      div {
+        font-family: 'Roboto';
+        position: absolute;
+        top: 20%;
+        color: #fff;
+        width: 100%;
+        font-size: 2rem;
+        padding: 0.6rem;
+        text-align: center;
+        h2 {
+          font-family: 'Lato', sans-serif;
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}

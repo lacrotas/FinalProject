@@ -1,9 +1,7 @@
 import React from 'react';
 
-import CreateLobbyForm from '../components/CreateLobbyForm';
-import SearchLobbyForm from '../components/SearchLobbyForm';
-
-import '../App.scss';
+import CreateLobbyForm from './components/createLobbyForm/CreateLobbyForm';
+import SearchLobbyForm from './components/searchLobbyForm/SearchLobbyForm';
 
 class CreateLobby extends React.Component {
   constructor(props) {

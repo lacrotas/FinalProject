@@ -1,13 +1,7 @@
-import SliderInfo from '../components/SliderInfo';
-
-import '../App.scss';
+// import SliderInfo from '../components/SliderInfo';
 
 const App = () => {
-  return (
-    <div className="App">
-      <SliderInfo />
-    </div>
-  );
+  return <div className="App">{/* <SliderInfo /> */}</div>;
 };
 
 export default App;

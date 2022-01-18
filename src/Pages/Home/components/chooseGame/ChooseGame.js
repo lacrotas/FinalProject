@@ -1,10 +1,12 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import Dota2Image from '../assets/gameIco/dota2.jpg';
-import CounterStrike from '../assets/gameIco/cs.jpg';
-import Lol from '../assets/gameIco/lol.jpg';
-import TeamFortress from '../assets/gameIco/tf.jpeg';
+import Dota2Image from '../../../../assets/gameIco/dota2.jpg';
+import CounterStrike from '../../../../assets/gameIco/cs.jpg';
+import Lol from '../../../../assets/gameIco/lol.jpg';
+import TeamFortress from '../../../../assets/gameIco/tf.jpeg';
+
+import './ChooseGame.scss';
 
 class ChooseGame extends React.Component {
   render() {

@@ -1,8 +1,10 @@
 import React from 'react';
-import Slider1 from '../assets/slider/slider1.jpg';
-import Slider2 from '../assets/slider/slider2.jpg';
-import Slider3 from '../assets/slider/slider3.jpg';
-import Slider4 from '../assets/slider/slider4.jpg';
+import Slider1 from '../../../../assets/slider/slider1.jpg';
+import Slider2 from '../../../../assets/slider/slider2.jpg';
+import Slider3 from '../../../../assets/slider/slider3.jpg';
+import Slider4 from '../../../../assets/slider/slider4.jpg';
+
+import './SliderInfo.scss';
 
 class Header extends React.Component {
   render() {

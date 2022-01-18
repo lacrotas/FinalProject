@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './SearchLobbyForm.scss';
+
 export default class SearchLobbyForm extends React.Component {
   render() {
     return (

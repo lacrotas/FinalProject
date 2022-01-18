@@ -1,0 +1,38 @@
+$divBackgroundColor: #313131;
+$buttonBackgroundColor: #f5f5f5;
+$blockBackgroundColor: #272727;
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+  background-color: #272727;
+  color: $buttonBackgroundColor;
+  .footer__container--left {
+    flex-basis: 30%;
+    text-align: left;
+    padding-left: 3%;
+
+    .footer_icon {
+      width: 7%;
+      margin: 2%;
+      transition: all 1s ease-out;
+      &:hover {
+        filter: drop-shadow(0 0 20px rgb(167, 167, 167));
+        cursor: pointer;
+      }
+    }
+  }
+  .footer__container--center {
+    flex-basis: 33%;
+    text-align: center;
+    .footer_logo {
+      width: 20%;
+    }
+  }
+  .footer__container--right {
+    flex-basis: 25%;
+    padding-left: 8%;
+    text-align: left;
+  }
+}
