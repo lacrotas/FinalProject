@@ -44,7 +44,7 @@ class MyLobbyTables extends React.Component {
   componentDidMount() {
     this.setState({ rows: getData() });
   }
-s
+
   render() {
     return (
       <TableContainer component={Paper}>
