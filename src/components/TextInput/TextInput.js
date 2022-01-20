@@ -3,7 +3,7 @@ import { ErrorMessage, useField } from 'formik';
 import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 
-import './Inputs.scss';
+import './TextInput.scss';
 
 export const Inputs = ({ label, ...props }) => {
   const [field] = useField(props);

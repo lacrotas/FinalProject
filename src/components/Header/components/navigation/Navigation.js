@@ -22,7 +22,7 @@ class Navigation extends React.Component {
   }
 
   getUserInfo = user => {
-    this.state.login = user.login;
+    this.state.login = user.firstName;
     localStorage.setItem('activeUser', JSON.stringify(user));
     this.logOut();
   };
@@ -53,7 +53,7 @@ class Navigation extends React.Component {
           <ModalWindow
             toggleState={this.toggleState}
             getUserInfo={this.getUserInfo}
-            isOpen={this.isOpen}
+            isOpen={this.state.isOpen}
           />
         )}
         {this.state.isAuthorizated && (

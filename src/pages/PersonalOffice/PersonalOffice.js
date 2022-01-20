@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Avatar from '@mui/material/Avatar';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
-import TextArea from './Inputs/Inputs';
+import TextInput from '../../components/TextInput/TextInput';
 
 import './PersonalOffice.scss';
 
@@ -100,11 +100,11 @@ const PersonalOffice = () => {
           </div>
         </div>
         <Form className="personalOffice__form">
-          <TextArea label="Имя" name="firstName" type="text" />
-          <TextArea label="Фамилия" name="lastName" type="text" />
-          <TextArea label="Логин" name="login" type="text" />
-          <TextArea label="Почта" name="email" type="email" />
-          <TextArea label="Пароль" name="password" type="password" />
+          <TextInput label="Имя" name="firstName" type="text" />
+          <TextInput label="Фамилия" name="lastName" type="text" />
+          <TextInput label="Логин" name="login" type="text" />
+          <TextInput label="Почта" name="email" type="email" />
+          <TextInput label="Пароль" name="password" type="password" />
           <button className="personalOffice__button--left" type="submit">
             Изменить данные
           </button>
