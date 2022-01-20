@@ -62,11 +62,14 @@ class ModalWindow extends React.Component {
         email: this.state.email,
         rang: 'Novice',
         firstName: '',
-        secondName: '',
+        lastName: '',
+        like: 0,
+        dislike: 0,
       };
       const oldUsers = JSON.parse(localStorage.getItem('UsersData') || '[]');
       oldUsers.push(newUser);
       localStorage.setItem('UsersData', JSON.stringify(oldUsers));
+      this.authorization();
     } else if (this.state.repassword !== this.state.password) {
       alert('пароли не совпадают');
     } else if (this.checkEmail()) {

@@ -1,0 +1,50 @@
+.personalOffice {
+  width: 90%;
+  margin-top: 40px;
+  margin-left: 5%;
+  display: flex;
+  position: relative;
+  .personalOffice__form {
+    flex-basis: 50%;
+    .personalOffice__button--left {
+      position: absolute;
+      left: 0;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      background: none;
+      font-size: 19px;
+      color: #fff;
+    }
+  }
+  .personalOffice__mainInfo {
+    flex-basis: 50%;
+    .personalOffice__avatar {
+      .personalOffice__image--avatar {
+        width: 200px;
+        height: 200px;
+        margin-left: calc(50% - 100px);
+      }
+      .personalOffice__block--upload {
+        position: relative;
+        top: -20px;
+        margin-left: calc(50% + 60px);
+        .personalOffice__button-upload {
+          width: 40px;
+          height: 40px;
+          &:hover {
+            cursor: pointer;
+            color: rgb(204, 204, 204);
+          }
+        }
+      }
+    }
+    .personalOffice__text--stats {
+      text-align: center;
+      padding: 10px;
+    }
+  }
+}
+.personalOffice__input--disable {
+  display: none;
+}

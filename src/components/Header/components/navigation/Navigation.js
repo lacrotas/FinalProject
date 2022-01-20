@@ -64,10 +64,12 @@ class Navigation extends React.Component {
             <Button>
               <Link to="/MyLobby">Ваши лобби</Link>
             </Button>
-            <Button>
-              <p>{this.state.login}</p>
-              <Avatar {...this.stringAvatar(this.state.login)} />
-            </Button>
+            <Link to="/PersonalOffice">
+              <Button>
+                <p>{this.state.login}</p>
+                <Avatar {...this.stringAvatar(this.state.login)} />
+              </Button>
+            </Link>
             <Button className="header__button--login" onClick={this.logOut}>
               Выход
             </Button>

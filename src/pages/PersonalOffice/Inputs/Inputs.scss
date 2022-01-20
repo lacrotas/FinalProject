@@ -1,0 +1,16 @@
+.inputError {
+  padding: 10px;
+  .inputError__input {
+    width: 100%;
+    border-bottom: #fff solid 1px;
+    label {
+      color: #fff;
+    }
+    input {
+      color: #fff;
+    }
+  }
+  .inputError__error {
+    color: #fff;
+  }
+}
