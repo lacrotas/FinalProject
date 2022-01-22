@@ -2,7 +2,8 @@ import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import TextInput from '../../../../../TextInput/TextInput';
+import { v1 as uuid } from 'uuid';
+import TextInput from '../../../../../shared/TextInput/TextInput';
 
 const Registration = ({ getUserInfo, toggleWindow, toggleState }) => {
   const validate = Yup.object({
@@ -42,7 +43,7 @@ const Registration = ({ getUserInfo, toggleWindow, toggleState }) => {
     }
   }
   function registration(values) {
-    // const newId = Symbol('id');
+    const newId = uuid();
     const oldUsers = JSON.parse(localStorage.getItem('UsersData') || '[]');
     if (checkEmail(values, oldUsers)) {
       const newUser = {
@@ -53,7 +54,7 @@ const Registration = ({ getUserInfo, toggleWindow, toggleState }) => {
         rang: 'Novice',
         like: 0,
         dislike: 0,
-        // id: newId,
+        id: newId,
       };
       oldUsers.push(newUser);
       localStorage.setItem('UsersData', JSON.stringify(oldUsers));

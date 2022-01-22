@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Avatar from '@mui/material/Avatar';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
-import TextInput from '../../components/TextInput/TextInput';
+import TextInput from '../../components/shared/TextInput/TextInput';
 
 import './PersonalOffice.scss';
 

@@ -1,0 +1,17 @@
+div {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    background-color: #313131;
+    color: #fff;
+    p {
+      color: #fff;
+      font-size: 15px;
+    }
+    button {
+      color: #fff;
+    }
+    .css-hlj6pa-MuiDialogActions-root > :not(:first-of-type) {
+      margin-right: 10px;
+      margin-left: 80px;
+    }
+  }
+}

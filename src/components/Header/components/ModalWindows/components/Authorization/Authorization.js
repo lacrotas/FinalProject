@@ -2,12 +2,14 @@ import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import TextInput from '../../../../../TextInput/TextInput';
+import TextInput from '../../../../../shared/TextInput/TextInput';
 
 const Authorization = ({ getUserInfo, toggleWindow, toggleState }) => {
   const validate = Yup.object({
-    email: Yup.string().email('Данная почта не доступна').required('Обязательное поле'),
-    password: Yup.string().min(6, 'Пароль не менее 6 символов').required('Обязательное поле'),
+    email: Yup.string().email('Такой почты не существует').required('Неверная почта или пароль'),
+    password: Yup.string()
+      .min(6, 'Неверная почта или пароль')
+      .required('Неверная почта или пароль'),
   });
 
   function authorization(values) {

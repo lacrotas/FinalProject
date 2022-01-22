@@ -30,7 +30,7 @@ export default class CreateLobbyForm extends React.Component {
         date: this.state.date,
         time: this.state.time,
         comment: this.state.comment,
-        user: activeUser.email,
+        userId: activeUser.id,
       };
       const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
       oldGames.push(newGame);
