@@ -13,7 +13,7 @@ const MyLobbyRedaction = ({ currentLobby, getLobbyToRedaction }) => {
   const [users, setUsers] = useState(currentLobby.users);
   const [time, setTime] = useState(currentLobby.time);
   const [comment, setComment] = useState(currentLobby.comment);
-  const [optionType, setOptionType] = useState(optionsCs);
+  const [optionType, setOptionType] = useState(optionsTf);
 
   function chooseGame(value) {
     setGame(value);
@@ -53,9 +53,9 @@ const MyLobbyRedaction = ({ currentLobby, getLobbyToRedaction }) => {
             Игра
             <select name="game" value={game} onChange={e => chooseGame(e.target.value)}>
               <option value="Dota2">Dota 2</option>
-              <option value="Cs">Counter-strike</option>
-              <option value="Tf">TeamFortress</option>
-              <option value="Lol">League of Legends</option>
+              <option value="Counter-strike">Counter-strike</option>
+              <option value="TeamFortress">TeamFortress</option>
+              <option value="League of Legends">League of Legends</option>
             </select>
           </label>
           <label className="redaction__flex--rang">
