@@ -1,0 +1,27 @@
+.change-form__button {
+  border: 1px solid #494949;
+  .change-form__button--create {
+    width: 50%;
+    font-size: 25px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    .change-form__image--create {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+  }
+  .change-form__button--search {
+    width: 50%;
+    font-size: 25px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    .change-form__image--search {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+  }
+}

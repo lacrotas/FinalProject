@@ -1,66 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import SearchImg from '../../assets/icon/search.png';
+import CreateImg from '../../assets/icon/creating.png';
 import CreateLobbyForm from './components/createLobbyForm/CreateLobbyForm';
 import SearchLobbyForm from './components/searchLobbyForm/SearchLobbyForm';
+import './CreateLobby.scss';
 
-class CreateLobby extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: true,
-      button1color: '#ffffff',
-      button2color: '#272227',
-      button1TextColor: '#000000',
-      button2TextColor: '#ffffff',
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const CreateLobby = () => {
+  const [actionType, setActionType] = useState(true);
 
-  handleClick() {
-    this.setState(previousState => ({ value: !previousState.value }));
-    if (this.state.value) {
-      this.setState({
-        button1color: '#272227',
-        button2color: '#ffffff',
-        button1TextColor: '#ffffff',
-        button2TextColor: '#272227',
-      });
-    } else {
-      this.setState({
-        button1color: '#ffffff',
-        button2color: '#272227',
-        button1TextColor: '#272227',
-        button2TextColor: '#ffffff',
-      });
-    }
-  }
+  const activeButton = {
+    buttonColor: '#d0ebec',
+    buttonTextColor: '#000000',
+  };
+  const unactiveButton = {
+    buttonColor: '#313131',
+    buttonTextColor: '#ffffff',
+    imgColor: 'invert(1)',
+  };
+  const [firstButtonType, setFirstButtonType] = useState(activeButton);
+  const [secondButtonType, setSecondButtonType] = useState(unactiveButton);
 
-  render() {
-    return (
-      <>
-        <div className="change-form-button">
-          <button
-            type="button"
-            onClick={this.handleClick}
-            style={{ backgroundColor: this.state.button1color, color: this.state.button1TextColor }}
-          >
-            Создание Лобби
-          </button>
-          <button
-            type="button"
-            onClick={this.handleClick}
-            style={{ backgroundColor: this.state.button2color, color: this.state.button2TextColor }}
-          >
-            Поиск Лобби
-          </button>
-        </div>
-        <div className="choose-form">
-          {this.state.value && <CreateLobbyForm />}
-          {!this.state.value && <SearchLobbyForm />}
-        </div>
-      </>
-    );
+  function creationWindow() {
+    setActionType(true);
+    setFirstButtonType(activeButton);
+    setSecondButtonType(unactiveButton);
   }
-}
+  function searchWindow() {
+    setActionType(false);
+    setFirstButtonType(unactiveButton);
+    setSecondButtonType(activeButton);
+  }
+  return (
+    <div className="change-form">
+      <div className="change-form__button">
+        <button
+          className="change-form__button--create"
+          type="button"
+          onClick={() => creationWindow()}
+          style={{
+            backgroundColor: firstButtonType.buttonColor,
+            color: firstButtonType.buttonTextColor,
+          }}
+        >
+          Создать
+          <img
+            className="change-form__image--create"
+            alt="search"
+            src={CreateImg}
+            style={{ filter: firstButtonType.imgColor }}
+          />
+        </button>
+        <button
+          className="change-form__button--search"
+          type="button"
+          onClick={() => searchWindow()}
+          style={{
+            backgroundColor: secondButtonType.buttonColor,
+            color: secondButtonType.buttonTextColor,
+          }}
+        >
+          Найти
+          <img
+            className="change-form__image--search"
+            alt="search"
+            src={SearchImg}
+            style={{ filter: secondButtonType.imgColor }}
+          />
+        </button>
+      </div>
+      <div className="choose-form">
+        {actionType && <CreateLobbyForm />}
+        {!actionType && <SearchLobbyForm />}
+      </div>
+    </div>
+  );
+};
 
 export default CreateLobby;

@@ -5,7 +5,7 @@ import './SearchLobbyForm.scss';
 export default class SearchLobbyForm extends React.Component {
   render() {
     return (
-      <div className="createLobby">
+      <div className="searchLobby">
         <div className="createLobby-settings">
           <div>
             <label>

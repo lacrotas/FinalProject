@@ -9,69 +9,60 @@ import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Button from '@mui/material/Button';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
+import MyLobbyRedaction from './MyLobbyRedaction/MyLobbyRedaction';
 import AlertDialog from '../../components/shared/Alert/AlertDialog';
 import './MyLobbyTables.scss';
 
-function getData() {
-  const updatedRows = [];
-  const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
-  const activeUser = JSON.parse(localStorage.getItem('activeUser') || '[]');
-
-  for (let i = 0; i < oldGames.length; i++) {
-    if (activeUser.id === oldGames[i].userId) {
-      updatedRows.push({
-        id: i,
-        game: oldGames[i].game,
-        map: oldGames[i].map,
-        rang: oldGames[i].rang,
-        users: oldGames[i].users,
-        date: oldGames[i].date,
-        time: oldGames[i].time,
-      });
-    }
-  }
-  return updatedRows;
-}
-
-const MyLobbyTables = () => {
-  const rows = getData();
+const MyLobbyTables = ({
+  lobby,
+  getLobby,
+  isError,
+  isLoading,
+  deleteMyLobby,
+  getLobbyToRedaction,
+}) => {
+  const [lobbyRedact, setLobbyRedact] = useState(false);
+  const [currentLobby, setCurrentLobby] = useState();
+  /* для Alert */
   const [openAlert, setOpenAlert] = useState(false);
   const lobbyId = useRef(null);
+  useEffect(() => {
+    getLobby();
+  }, []);
 
   function toggleState(id) {
     setOpenAlert(!openAlert);
     lobbyId.current = id;
   }
 
+  function editLobby(row) {
+    setCurrentLobby(row);
+    setLobbyRedact(!lobbyRedact);
+  }
+
   const getAsk = ask => {
     setOpenAlert(!openAlert);
     if (ask) {
-      deleteLobby(lobbyId.current);
+      const payload = lobbyId.current;
+      console.log(payload);
+      deleteMyLobby(payload);
     }
   };
 
-  function deleteLobby(id) {
-    const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
-    const updatedLobby = [];
-    for (let i = 0; i < oldGames.length; i++) {
-      if (id !== i) {
-        updatedLobby.push({
-          userId: oldGames[i].userId,
-          game: oldGames[i].game,
-          map: oldGames[i].map,
-          rang: oldGames[i].rang,
-          users: oldGames[i].users,
-          date: oldGames[i].date,
-          time: oldGames[i].time,
-          comment: oldGames[i].comment,
-        });
-      }
-    }
-    localStorage.setItem('lobbyData', JSON.stringify(updatedLobby));
+  if (isLoading) {
+    return <p>Loading.. .</p>;
   }
-
+  if (isError) {
+    return <p>Error</p>;
+  }
+  if (lobbyRedact) {
+    return (
+      <MyLobbyRedaction currentLobby={currentLobby} getLobbyToRedaction={getLobbyToRedaction} />
+    );
+  }
   return (
     <TableContainer component={Paper}>
       {openAlert && <AlertDialog openAlert={openAlert} getAsk={getAsk} />}
@@ -88,7 +79,7 @@ const MyLobbyTables = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {lobby.map(row => (
             <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell>{row.game}</TableCell>
               <TableCell align="right">{row.map}</TableCell>
@@ -97,7 +88,7 @@ const MyLobbyTables = () => {
               <TableCell align="right">{row.date}</TableCell>
               <TableCell align="right">{row.time}</TableCell>
               <TableCell align="right">
-                <Button variant="text">
+                <Button variant="text" onClick={() => editLobby(row)}>
                   <SettingsIcon fontSize="inherit" />
                 </Button>
                 <Button variant="text" onClick={() => toggleState(row.id)}>
@@ -110,5 +101,14 @@ const MyLobbyTables = () => {
       </Table>
     </TableContainer>
   );
+};
+
+MyLobbyTables.propTypes = {
+  lobby: PropTypes.array.isRequired,
+  getLobby: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+  deleteMyLobby: PropTypes.func.isRequired,
+  getLobbyToRedaction: PropTypes.func.isRequired,
 };
 export default MyLobbyTables;

@@ -1,38 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CreateLobbyForm.scss';
+import Select from 'react-select';
+import { optionsCs, optionsDota, optionsTf, optionsLol } from '../../../../constatns/selects';
 
-export default class CreateLobbyForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: '',
-      rang: '',
-      users: '',
-      map: '',
-      date: '',
-      time: '',
-      comment: '',
-    };
-    this.handlerSaveInputs = this.handlerSaveInputs.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.checkForm = this.checkForm.bind(this);
+const CreateLobbyForm = () => {
+  const [game, setGame] = useState('');
+  const [map, setMap] = useState('');
+  const [rang, setRang] = useState('');
+  const [date, setDate] = useState('');
+  const [users, setUsers] = useState('');
+  const [time, setTime] = useState('');
+  const [comment, setComment] = useState('');
+  const [optionType, setOptionType] = useState(optionsCs);
+
+  function chooseGame(value) {
+    setGame(value);
+    if (value === 'Dota2') {
+      setOptionType(optionsDota);
+    }
+    if (value === 'Counter-strike') {
+      setOptionType(optionsCs);
+    }
+    if (value === 'TeamFortress') {
+      setOptionType(optionsTf);
+    }
+    if (value === 'League of Legends') {
+      setOptionType(optionsLol);
+    }
   }
 
-  handlerSaveInputs() {
-    if (this.checkForm()) {
+  function handlerSaveInputs() {
+    if (checkForm()) {
       const activeUser = JSON.parse(localStorage.getItem('activeUser') || '[]');
+      const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
       const newGame = {
-        game: this.state.game,
-        rang: this.state.rang,
-        users: this.state.users,
-        map: this.state.map,
-        date: this.state.date,
-        time: this.state.time,
-        comment: this.state.comment,
+        game,
+        map: map.value,
+        rang,
+        date,
+        users,
+        time,
+        comment,
+        id: oldGames.length,
         userId: activeUser.id,
       };
-      const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
       oldGames.push(newGame);
       localStorage.setItem('lobbyData', JSON.stringify(oldGames));
       alert('Поле созданно');
@@ -41,100 +53,74 @@ export default class CreateLobbyForm extends React.Component {
     }
   }
 
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  checkForm() {
+  function checkForm() {
     if (
-      this.state.game === '' ||
-      this.state.rang === '' ||
-      this.state.users === '' ||
-      this.state.map === '' ||
-      this.state.date === '' ||
-      this.state.time === '' ||
-      this.state.comment === ''
+      game === '' ||
+      rang === '' ||
+      users === '' ||
+      map === '' ||
+      date === '' ||
+      time === '' ||
+      comment === ''
     ) {
       return false;
     }
     return true;
   }
 
-  render() {
-    return (
-      <div className="createLobby">
-        <div className="createLobby-settings">
-          <div>
-            <label>
-              Игра
-              <select name="game" onChange={e => this.handleChange(e)}>
-                <option value="Dota2">Dota 2</option>
-                <option value="Cs">Counter-strike</option>
-                <option value="Tf">TeamFortress</option>
-                <option value="Lol">League of Legends</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>
-              Ранг
-              <select name="rang" onChange={e => this.handleChange(e)}>
-                <option>{this.state.rang || 'Ранг'}</option>
-                <option value="Novice">Novice</option>
-                <option value="Amateur">Amateur</option>
-                <option value="Expert">Expert</option>
-              </select>
-            </label>
-          </div>
-
-          <div>
-            <label>
-              Игроков
-              <input
-                type="number"
-                name="users"
-                value={this.state.users}
-                onChange={e => this.handleChange(e)}
-                placeholder="Кол-во игроков"
-              />
-            </label>
-            <label>
-              Карта
-              <input
-                type="text"
-                name="map"
-                value={this.state.map}
-                onChange={e => this.handleChange(e)}
-                placeholder="Карта"
-              />
-            </label>
-          </div>
-
-          <div>
-            <label>
-              Дата
-              <input
-                type="date"
-                name="date"
-                value={this.state.date}
-                onChange={e => this.handleChange(e)}
-              />
-            </label>
-            <label>
-              Время
-              <input
-                type="time"
-                name="time"
-                value={this.state.time}
-                onChange={e => this.handleChange(e)}
-              />
-            </label>
-          </div>
+  return (
+    <div className="createLobby">
+      <div className="createLobby__flex">
+        <div className="createLobby__flex--switch">
+          <label className="createLobby__settings--game">
+            Игра
+            <select name="game" value={game} onChange={e => chooseGame(e.target.value)}>
+              <option value="Dota 2">Dota 2</option>
+              <option value="Counter-strike">Counter-strike</option>
+              <option value="TeamFortress">TeamFortress</option>
+              <option value="League of Legends">League of Legends</option>
+            </select>
+          </label>
+          <label className="createLobby__settings--rang">
+            Ранг
+            <select name="rang" value={rang} onChange={e => setRang(e.target.value)}>
+              <option value="Novice">Novice</option>
+              <option value="Amateur">Amateur</option>
+              <option value="Expert">Expert</option>
+            </select>
+          </label>
+          <label className="createLobby__settings--map">
+            {' '}
+            Карта
+            <Select
+              className="createLobby__select--map"
+              options={optionType}
+              value={map}
+              onChange={value => setMap(value)}
+            />
+          </label>
         </div>
-
-        <div className="createLobby-comment">
+        <div className="createLobby__flex--input">
+          <label className="createLobby__settings--users">
+            Игроков
+            <input
+              type="number"
+              name="users"
+              value={users}
+              onChange={e => setUsers(e.target.value)}
+              placeholder="Кол-во игроков"
+            />
+          </label>
+          <label className="createLobby__comment--date">
+            Дата
+            <input type="date" name="date" value={date} onChange={e => setDate(e.target.value)} />
+          </label>
+          <label className="createLobby__comment--time">
+            Время
+            <input type="time" name="time" value={time} onChange={e => setTime(e.target.value)} />
+          </label>
+        </div>
+        <div className="createLobby__flex--textarea">
           <label>
             Описание
             <textarea
@@ -142,17 +128,18 @@ export default class CreateLobbyForm extends React.Component {
               cols="40"
               rows="5"
               placeholder="Ваш комментарий"
-              value={this.state.comment}
-              onChange={e => this.handleChange(e)}
+              value={comment}
+              onChange={e => setComment(e.target.value)}
             />
           </label>
         </div>
-        <Link to="/MyLobby">
-          <button type="button" onClick={() => this.handlerSaveInputs()}>
-            Создать лобби
-          </button>
-        </Link>
       </div>
-    );
-  }
-}
+      <Link to="/MyLobby">
+        <button className="createLobby__button" type="button" onClick={() => handlerSaveInputs()}>
+          Создать лобби
+        </button>
+      </Link>
+    </div>
+  );
+};
+export default CreateLobbyForm;

@@ -1,11 +1,11 @@
-.createLobby {
+.redaction {
   margin-left: 5%;
   width: 90%;
   height: 500px;
-  .createLobby__flex {
+  .redaction__flex {
     display: flex;
-    .createLobby__flex--switch,
-    .createLobby__flex--textarea {
+    .redaction__flex--switch,
+    .redaction__flex--textarea {
       width: calc(35% - 20px);
       margin-left: 20px;
       margin-top: 20px;
@@ -43,7 +43,7 @@
             font-size: 17px;
           }
         }
-        .createLobby__select--map {
+        .redaction__flex--map {
           font-size: 17px;
           font-family: 'Gill Sans', sans-serif;
           margin: 10px 0px;
@@ -65,7 +65,7 @@
         }
       }
     }
-    .createLobby__flex--input {
+    .redaction__flex--input {
       width: calc(30% - 20px);
       margin-left: 20px;
       margin-top: 20px;
@@ -92,7 +92,7 @@
       }
     }
   }
-  .createLobby__button {
+  .redaction__button {
     font-family: 'Gill Sans', sans-serif;
     border-radius: 14px;
     padding: 5px 9px;
