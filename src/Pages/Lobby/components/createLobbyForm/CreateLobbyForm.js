@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CreateLobbyForm.scss';
 import Select from 'react-select';
-import { optionsCs, optionsDota, optionsTf, optionsLol } from '../../../../constatns/selects';
+import { GameOption } from '../../../../constatns/selects';
 
 const CreateLobbyForm = () => {
   const [game, setGame] = useState('');
@@ -12,21 +12,21 @@ const CreateLobbyForm = () => {
   const [users, setUsers] = useState('');
   const [time, setTime] = useState('');
   const [comment, setComment] = useState('');
-  const [optionType, setOptionType] = useState(optionsCs);
+  const [optionType, setOptionType] = useState(GameOption.CS);
 
   function chooseGame(value) {
     setGame(value);
-    if (value === 'Dota2') {
-      setOptionType(optionsDota);
+    if (value === 'Dota 2') {
+      setOptionType(GameOption.DOTA);
     }
     if (value === 'Counter-strike') {
-      setOptionType(optionsCs);
+      setOptionType(GameOption.CS);
     }
     if (value === 'TeamFortress') {
-      setOptionType(optionsTf);
+      setOptionType(GameOption.TF);
     }
     if (value === 'League of Legends') {
-      setOptionType(optionsLol);
+      setOptionType(GameOption.LOL);
     }
   }
 
@@ -39,7 +39,7 @@ const CreateLobbyForm = () => {
         map: map.value,
         rang,
         date,
-        users,
+        users: `1/${users}`,
         time,
         comment,
         id: oldGames.length,
@@ -54,15 +54,7 @@ const CreateLobbyForm = () => {
   }
 
   function checkForm() {
-    if (
-      game === '' ||
-      rang === '' ||
-      users === '' ||
-      map === '' ||
-      date === '' ||
-      time === '' ||
-      comment === ''
-    ) {
+    if (game === '' || rang === '' || users === '' || map === '' || date === '' || time === '') {
       return false;
     }
     return true;
@@ -97,6 +89,7 @@ const CreateLobbyForm = () => {
               options={optionType}
               value={map}
               onChange={value => setMap(value)}
+              placeholder={optionType[0].value}
             />
           </label>
         </div>

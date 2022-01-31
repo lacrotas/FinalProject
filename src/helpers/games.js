@@ -1,9 +1,9 @@
-// import { lobbyDataConst } from '../constatns/storage';
+import { STORAGE_KEYS } from '../constatns/storage';
 
 export const getGames = () => {
   const updatedRows = [];
-  const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
-  const activeUser = JSON.parse(localStorage.getItem('activeUser') || '[]');
+  const oldGames = JSON.parse(localStorage.getItem(STORAGE_KEYS.LOBBY_DATA) || '[]');
+  const activeUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.ACTIVE_USER) || '[]');
 
   for (let i = 0; i < oldGames.length; i++) {
     if (activeUser.id === oldGames[i].userId) {
@@ -24,7 +24,7 @@ export const getGames = () => {
 };
 
 export const deleteLobby = id => {
-  const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
+  const oldGames = JSON.parse(localStorage.getItem(STORAGE_KEYS.LOBBY_DATA) || '[]');
   const updatedLobby = [];
   let coefficient = 0;
   for (let i = 0; i < oldGames.length; i++) {
@@ -44,12 +44,12 @@ export const deleteLobby = id => {
       coefficient = 1;
     }
   }
-  localStorage.setItem('lobbyData', JSON.stringify(updatedLobby));
+  localStorage.setItem(STORAGE_KEYS.LOBBY_DATA, JSON.stringify(updatedLobby));
   return updatedLobby;
 };
 
 export const editGames = game => {
-  const oldGames = JSON.parse(localStorage.getItem('lobbyData') || '[]');
+  const oldGames = JSON.parse(localStorage.getItem(STORAGE_KEYS.LOBBY_DATA) || '[]');
   const updatedLobby = [];
 
   for (let i = 0; i < oldGames.length; i++) {
@@ -68,6 +68,6 @@ export const editGames = game => {
       });
     }
   }
-  localStorage.setItem('lobbyData', JSON.stringify(updatedLobby));
+  localStorage.setItem(STORAGE_KEYS.LOBBY_DATA, JSON.stringify(updatedLobby));
   return updatedLobby;
 };

@@ -51,3 +51,9 @@ export const optionsTf = [
 export const optionsLol = [
   { label: 'Официальная карта', value: 'Официальная карта', style: { color: 'red' } },
 ];
+export const GameOption = {
+  CS: optionsCs,
+  DOTA: optionsDota,
+  TF: optionsTf,
+  LOL: optionsLol,
+};

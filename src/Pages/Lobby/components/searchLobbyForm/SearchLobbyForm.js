@@ -53,13 +53,9 @@ export default class SearchLobbyForm extends React.Component {
             </label>
           </div>
         </div>
-        <div className="createLobby-comment">
-          <label>
-            Описание
-            <textarea name="comments" cols="40" rows="5" placeholder="Ваш комментарий" />
-          </label>
-        </div>
-        <button type="button">Найти лобби</button>
+        <button className="searchLobby__button" type="button">
+          Найти лобби
+        </button>
       </div>
     );
   }

@@ -1,0 +1,41 @@
+.activeUserItem {
+  width: 20%;
+  margin-left: 2%;
+  background-color: rgba($color: #000000, $alpha: 0);
+  border: 1px #fff solid;
+  text-align: center;
+  .activeUserItem__button {
+    display: flex;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border-bottom: 1px solid #fff;
+    &:hover {
+      background-color: #646566;
+    }
+    .activeUserItem__image--avatar {
+      width: 40px;
+      height: 40px;
+    }
+    .activeUserItem__label--name {
+      width: 40%;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+  .activeUserItem__stats {
+    width: 100%;
+    display: flex;
+    color: #fff;
+    font-size: 15px;
+    h3 {
+      width: 30%;
+      svg {
+        width: 25%;
+      }
+    }
+  }
+  .activeUserItem__button--delete {
+    width: 100%;
+    height: 40px;
+  }
+}
